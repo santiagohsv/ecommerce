@@ -1,0 +1,18 @@
+html 
+  head 
+    title='Curso Backend'
+    link(rel="stylesheet" href="style.css")
+  body
+    div(class="user") 
+      a Bienvenido #{user}
+      button(type="button" id='toLogoutBtn') Logout
+    h2 Agregar producto
+    include components/form
+    h2 Listado de Productos
+    div(id="products")
+    br
+    h2 Chat
+    include components/chat
+    script(src="/socket.io/socket.io.js")
+    script(src="https://cdn.jsdelivr.net/npm/normalizr@3.6.1/dist/normalizr.browser.min.js")
+    script(src="main.js")

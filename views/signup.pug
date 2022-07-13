@@ -1,0 +1,35 @@
+html
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet" href="../../style.css")
+        title Signup
+    body
+        form(action='/api/auth/signup'  method='POST' id="authForm") 
+            h1 Sign up
+            div(class='input')
+                label(for='mail')='Mail'
+                input(type="text" name="mail" id="mail")
+            div(class='input')
+                label(for='password')='Password'
+                input(type="password" name="password" id="password")              
+            div(class='input')
+                label(for='nombre')='Nombre'
+                input(type="text" name="nombre" id="nombre")     
+            div(class='input')
+                label(for='edad')='Edad'
+                input(type="number" name="edad" id="edad")        
+            div(class='input')
+                label(for='direccion')='direccion'
+                input(type="text" name="direccion" id="direccion")     
+            div(class='input')
+                label(for='tel')='Edad'
+                input(type="tel" name="tel" pattern="+[0-9]{2}[0-9]{3}[0-9]{6}" placeholder="Formato: +XX XXX XXXXXX" id="tel")                     
+            div(class='btn')
+                button(type="submit") Sign up   
+                spam or
+                button(type='button' id="toLoginBtn") Login 
+    script(src="../../auth.js")
+              
+

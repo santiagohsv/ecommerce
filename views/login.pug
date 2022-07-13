@@ -1,0 +1,18 @@
+html 
+    head 
+        title='Desafio Clase #24 - Curso Backend'
+        link(rel="stylesheet" href="../../style.css")
+    body 
+        form(action='/api/auth/login' method='POST' id="authForm") 
+            h1 Login
+            div(class='input')
+                label(for='mail')='Nombre'
+                input(type="text" name="mail" id="mail")
+            div(class='input')
+                label(for='password')='Password'
+                input(type="password" name="password" id="password")              
+            div(class='btn')
+                button(type="submit") Login  
+                spam or
+                button(type="button" id='toSignupBtn') Signup
+    script(src="../../auth.js")
