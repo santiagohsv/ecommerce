@@ -11,10 +11,10 @@ const cluster = require('cluster')
 const os = require("os"); 
 const minimist = require('minimist');
 
-const optiones = { default: {puerto:8080 , modo:'FORK'}};
+const optiones = { default: { modo:'FORK'}};
 const argv = minimist(process.argv.slice(2),optiones);
 
-port = process.env.PORT || argv.puerto 
+port = process.env.PORT || 8080
 
 socketConfig(io);
 
