@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
-
+const logger = require('./logger');
 const connectionString = process.env.BD 
 
 const initMongoDB = async () => {
   try {
     await mongoose.connect(connectionString);
-    console.log('Contectado a la BD');
+    logger.info('Contectado a la BD');
   } catch (err) {
-    console.log('No se pudo conectar a la BD', err);
+    logger.info('No se pudo conectar a la BD', err);
   }
 };
 

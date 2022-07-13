@@ -68,7 +68,7 @@ router.delete("/:id/productos/:idProd", (req, res) => {
 });
 
 // CHECK
-router.get("/check", (req, res) => {
+router.post("/check", (req, res) => {
   const { mail, nombre } = req.user;
   const id = req.query.id;
   cartController.getById(id).then((order) => {
@@ -76,7 +76,7 @@ router.get("/check", (req, res) => {
     order.productList.forEach((item) => {
       list.push(item.title);
     });
-    newCartMail(mail, nombre, list.join(" - "))
+    newCartMail(mail, nombre, list.join(" - ")) 
     newCartWpp(mail, nombre);
     res.send("Orden enviada correctamente");
   });
