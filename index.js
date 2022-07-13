@@ -14,6 +14,8 @@ const minimist = require('minimist');
 const optiones = { default: {puerto:8080 , modo:'FORK'}};
 const argv = minimist(process.argv.slice(2),optiones);
 
+port = process.env.PORT || argv.puerto 
+
 socketConfig(io);
 
 initMongoDB();
@@ -30,7 +32,7 @@ const init = () => {
       looger.info(`WORKER ${worker.process.pid} finalizó`);
     });
   } else {
-    server.listen(argv.puerto, () => {
+    server.listen( port , () => {
       logger.info(`CORRIENDO WORKER PROCESS ID ${process.pid}`);
     });
   }
