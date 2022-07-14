@@ -2,17 +2,7 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 const logger = require('../services/logger');
-/* const multer = require('multer');
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, './public/files')
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.originalname)
-  }
-})
-const upload = multer({ storage: storage })
- */
+const upload = require('../services/multer')
 
 router.get("/login", (req, res) => {
   req.isAuthenticated() ? res.redirect("/") : res.render("login");
@@ -31,16 +21,16 @@ router.get("/signup", (req, res) => {
 });
 
 
-router.post("/signup", passport.authenticate("signup", { failureRedirect: "/api/auth/signupfail" }), (req, res) => {
+/* router.post("/signup", passport.authenticate("signup", { failureRedirect: "/api/auth/signupfail" }), (req, res) => {
     res.redirect("/api/auth/login");
   }
-); 
+);  */
 
-/* router.post("/signup", passport.authenticate("signup", { failureRedirect: "/api/auth/signupfail" }), upload.file('foto'), (req, res) => {
+router.post("/signup", upload.single('foto'), passport.authenticate("signup", { failureRedirect: "/api/auth/signupfail" }), (req, res) => {
   res.redirect("/api/auth/login");
 }
 ); 
- */
+
 router.get("/logout", (req, res) => { 
   const session = req.session;
   session.destroy((err) => {

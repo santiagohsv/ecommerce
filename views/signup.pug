@@ -6,7 +6,7 @@ html
         link(rel="stylesheet" href="../../style.css")
         title='Signup'
     body
-        form(action='/api/auth/signup'  method='POST' id="authForm") 
+        form(action='/api/auth/signup' enctype="multipart/form-data" method='POST' id="authForm") 
             h1 Sign up
             div(class='input')
                 label(for='mail')='Mail'
@@ -26,6 +26,9 @@ html
             div(class='input')
                 label(for='tel')='Telefono'
                 input(type="tel" name="tel" pattern="+[0-9]{2}[0-9]{3}[0-9]{6}" placeholder="Formato: +XX XXX XXXXXX" id="tel")                     
+            div(class='input')
+                label(for='foto')='Foto'
+                input(type="file" name="foto" accept="image/*")           
             div(class='btn')
                 button(type="submit") Sign up   
                 spam or
